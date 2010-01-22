@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="de.hlavka.minstatservice.jar" default="jar" basedir=".">
+	<target name="clean">
+		<delete file="de.hlavka.minstatservice.jar"/>
+	</target>
+	<target name="build">
+		<javac 
+			classpath="serviceframework.jar:lunaservice.jar:json.jar:Utils.jar"
+			srcdir="."
+			destdir="."
+		/>
+ 	</target>
+	<target name="jar" depends="build">
+		<jar
+			destfile="de.hlavka.minstatservice.jar"
+			basedir="."
+			includes="**/*.class"
+		/>
+    </target>
+	<target name="upload" depends="jar">
+		 <exec executable="scp">
+		    <arg value="de.hlavka.minstatservice.jar"/>
+		    <arg value="root@webos:/usr/lib/luna/java/"/>
+		  </exec>
+		 <exec executable="ssh">
+		    <arg value="root@webos"/>
+		    <arg value="stop java-serviceboot"/>
+		  </exec>
+		 <exec executable="ssh">
+		    <arg value="root@webos"/>
+		    <arg value="start java-serviceboot"/>
+		  </exec>
+	</target>
+</project>

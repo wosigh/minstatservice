@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Install the java dbus service
+rm -f /usr/lib/luna/java/de.hlavka.minstatservice.jar
+ln -s /var/usr/lib/luna/java/de.hlavka.minstatservice.jar /usr/lib/luna/java/de.hlavka.minstatservice.jar
+rm -f /usr/share/dbus-1/system-services/de.hlavka.minstatservice.service
+ln -s /var/usr/share/dbus-1/system-services/de.hlavka.minstatservice.service /usr/share/dbus-1/system-services/de.hlavka.minstatservice.service
+
+# Install the upstart script
+rm -f /etc/event.d/de.hlavka.minstatservice
+cp /var/etc/event.d/de.hlavka.minstatservice /etc/event.d/de.hlavka.minstatservice
+
+# Restart the service handler (this also starts this service)
+if [ -z "$IPKG_OFFLINE_ROOT" ]; then # Defined by recent installers that also support flags.
+    /sbin/stop java-serviceboot
+    /sbin/start java-serviceboot
+fi
+
+exit 0

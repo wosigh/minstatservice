@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/TBH/Desktop/Palm Pre/json.jar"/>
+	<classpathentry kind="lib" path="/Users/TBH/Desktop/Palm Pre/lunaservice.jar"/>
+	<classpathentry kind="lib" path="/Users/TBH/Desktop/Palm Pre/serviceframework.jar"/>
+	<classpathentry kind="lib" path="/Users/TBH/Desktop/Palm Pre/Utils.jar"/>
+	<classpathentry kind="lib" path="/Users/TBH/Desktop/Palm Pre/sqlitejdbc-v053.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
