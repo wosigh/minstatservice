@@ -5,7 +5,7 @@
 
 # Remove the java dbus service
 rm -f /usr/lib/luna/java/de.hlavka.minstatservice.jar
-rm -f /usr/share/dbus-1/system-services/de.hlavka.minstatservice.jar
+rm -f /usr/share/dbus-1/system-services/de.hlavka.minstatservice.service
 
 # Remove the upstart script
 rm -f /etc/event.d/de.hlavka.minstatservice

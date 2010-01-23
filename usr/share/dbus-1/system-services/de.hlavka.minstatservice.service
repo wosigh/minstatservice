@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=de.hlavka.minstatservice
+Exec=/usr/bin/luna-helper 'luna://com.palm.vm/launch' '{"serviceName":"de.hlavka.minstatservice","className":"de.hlavka.minstatservice.MinstatService"}'
