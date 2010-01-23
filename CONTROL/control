@@ -1,0 +1,9 @@
+Package: de.hlavka.minstatservice
+Version: 1.5.0
+Architecture: all
+Maintainer: Tobias Hlavka (TBH)
+Description: LED Manager Service
+Section: Luna
+Priority: optional
+Depends:
+Source: { "Source":"git://git.webos-internals.org/services/minstatservice.git", "Feed":"WebOS Internals", "Type":"Service", "Category":"Luna", "LastUpdated":"1264198812", "Title":"Minstat Service", "FullDescription":"Minstatservice is the backend service to get the number of sent messages and calls made in a certain time period. It is required for the MinStat application.<br>Changelog:<br>initial release", "Homepage":"http://forums.precentral.net/homebrew-apps/226237-minstat.html", "Icon":"http://minstatservice.hlavka.de/minstat_icon.png", "License":"GPL v3 Open Source", "PostInstallFlags":"RestartJava", "PostUpdateFlags":"RestartJava", "PostRemoveFlags":"RestartJava" }
