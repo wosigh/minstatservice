@@ -2,24 +2,22 @@ description "MinStat Service"
 
 start on started java-serviceboot
 
-#console output
-
 script
-   logger "de.hlavka.minstatsercice upstart: script called"
+   logger "de.hlavka.minstatservice upstart: script called"
 
    sleep 10
-   logger "de.hlavka.minstatsercice: delay done"
+   logger "de.hlavka.minstatservice upstart: delay done"
 
    returnTrue=0
    tries=0
    while [ $returnTrue -eq 0 -a $tries -le 20 ]
    do
-      returnVal=$(luna-send -n 1 luna://de.hlavka.minstatsercice/getStatus '{}' 2>&1)
+      returnVal=$(luna-send -n 1 luna://de.hlavka.minstatservice/status '{}' 2>&1)
 
-      logger "de.hlavka.minstatsercice upstart: returnVal is $returnVal"
+      logger "de.hlavka.minstatservice upstart: returnVal is $returnVal"
 
       tries=`expr $tries + 1`
-      if [ "$returnVal" = "** Message: serviceResponse Handling: 2, {\"returnValue\":true}" ]
+			if [[ "$returnVal" == *true* ]]
       then
          returnTrue=1
       else
@@ -27,10 +25,8 @@ script
       fi
    done
 
-   logger "de.hlavka.minstatsercice upstart: $returnTrue"
-   logger "de.hlavka.minstatsercice upstart: $tries"
+   logger "de.hlavka.minstatservice upstart: $returnTrue"
+   logger "de.hlavka.minstatservice upstart: $tries"
 
-   logger "de.hlavka.minstatsercice upstart: done"
+   logger "de.hlavka.minstatservice upstart: done"
 end script
-
-#respawn
