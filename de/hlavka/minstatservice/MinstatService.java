@@ -27,7 +27,7 @@ public class MinstatService extends LunaServiceThread {
 		try
 		{
 				JSONObject reply = new JSONObject();
-				reply.put("version","1.5");
+				reply.put("version","1.6");
 				msg.respond(reply.toString());
 		}
 		catch (LSException e) 
@@ -97,6 +97,18 @@ public class MinstatService extends LunaServiceThread {
 			    	cntSMS = cntSMS + (int)Math.ceil(rs.getString("messageText").length()/160d);
 			    }
 			    reply.put("SMS",cntSMS);
+			    
+			    
+			   rs = stat.executeQuery("select messageText from com_palm_pim_FolderEntry where timeStamp>'"+sinceTimestamp+"' and smsClass='1' and messageType='SMS';");
+			    
+			   int incomingSMS = 0;
+			    
+			   while (rs.next()) {
+			    	incomingSMS = incomingSMS + (int)Math.ceil(rs.getString("messageText").length()/160d);
+			   }
+			    reply.put("incomingSMS",cntSMS);
+			    
+			    
 			    
 			    rs = stat.executeQuery("select duration from com_palm_superlog_Superlog where startTime>'"+sinceTimestamp+"' and duration>'0' and type='outgoing';");
 			    
