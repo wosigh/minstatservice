@@ -27,7 +27,7 @@ public class MinstatService extends LunaServiceThread {
 		try
 		{
 				JSONObject reply = new JSONObject();
-				reply.put("version","1.6");
+				reply.put("version","1.6.1");
 				msg.respond(reply.toString());
 		}
 		catch (LSException e) 
